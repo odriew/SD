@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SCRIPTDIR=$(pwd)
+USER_MODULES="$SCRIPTDIR/libFAT $SCRIPTDIR/libSD $SCRIPTDIR" make -f $LIB_MAPLE_HOME/Makefile $@
