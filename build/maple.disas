@@ -4084,7 +4084,7 @@ Disassembly of section .text:
  80075fc:	4632      	mov	r2, r6
  80075fe:	462b      	mov	r3, r5
  8007600:	f7ff ff32 	bl	8007468 <_ZN6SD_Dev7commandEiPhS0_i>
- 8007604:	b170      	cbz	r0, 8007624 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xfc>
+ 8007604:	b168      	cbz	r0, 8007622 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xfa>
  8007606:	f994 3019 	ldrsb.w	r3, [r4, #25]
  800760a:	2b00      	cmp	r3, #0
  800760c:	daf2      	bge.n	80075f4 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xcc>

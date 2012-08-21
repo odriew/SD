@@ -10,6 +10,7 @@
 #include <libSD/SD.h>
 //online code editing? This. Is. AWESOME.
 //also, EDITED WITH EMACS
+//also also, HOW THE FUCK DO I UPLOAD THIS?
 
 //slow baud for init. fast for opp.
 extern const spi_baud_rate baudSlow= SPI_BAUD_PCLK_DIV_256;
