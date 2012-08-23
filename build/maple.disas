@@ -3905,7 +3905,7 @@ Disassembly of section .text:
  800744c:	4620      	mov	r0, r4
  800744e:	bd10      	pop	{r4, pc}
 
-08007450 <T.16>:
+08007450 <T.28>:
  8007450:	f1d1 0201 	rsbs	r2, r1, #1
  8007454:	bf38      	it	cc
  8007456:	2200      	movcc	r2, #0
@@ -3926,7 +3926,7 @@ Disassembly of section .text:
  8007474:	4616      	mov	r6, r2
  8007476:	469a      	mov	sl, r3
  8007478:	f8dd 8020 	ldr.w	r8, [sp, #32]
- 800747c:	f7ff ffe8 	bl	8007450 <T.16>
+ 800747c:	f7ff ffe8 	bl	8007450 <T.28>
  8007480:	21ff      	movs	r1, #255	; 0xff
  8007482:	6820      	ldr	r0, [r4, #0]
  8007484:	f7ff ffc6 	bl	8007414 <_Z8spi_sendP7spi_devh>
@@ -3988,7 +3988,7 @@ Disassembly of section .text:
  8007512:	f7ff ff7f 	bl	8007414 <_Z8spi_sendP7spi_devh>
  8007516:	68a0      	ldr	r0, [r4, #8]
  8007518:	2100      	movs	r1, #0
- 800751a:	f7ff ff99 	bl	8007450 <T.16>
+ 800751a:	f7ff ff99 	bl	8007450 <T.28>
  800751e:	2000      	movs	r0, #0
  8007520:	e8bd 85f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, sl, pc}
  8007524:	08008cd4 	.word	0x08008cd4
@@ -4084,18 +4084,18 @@ Disassembly of section .text:
  80075fc:	4632      	mov	r2, r6
  80075fe:	462b      	mov	r3, r5
  8007600:	f7ff ff32 	bl	8007468 <_ZN6SD_Dev7commandEiPhS0_i>
- 8007604:	b168      	cbz	r0, 8007622 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xfa>
- 8007606:	f994 3019 	ldrsb.w	r3, [r4, #25]
- 800760a:	2b00      	cmp	r3, #0
- 800760c:	daf2      	bge.n	80075f4 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xcc>
- 800760e:	2500      	movs	r5, #0
- 8007610:	6820      	ldr	r0, [r4, #0]
- 8007612:	7165      	strb	r5, [r4, #5]
- 8007614:	4629      	mov	r1, r5
+ 8007604:	4607      	mov	r7, r0
+ 8007606:	b960      	cbnz	r0, 8007622 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xfa>
+ 8007608:	f994 3019 	ldrsb.w	r3, [r4, #25]
+ 800760c:	2b00      	cmp	r3, #0
+ 800760e:	daf1      	bge.n	80075f4 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xcc>
+ 8007610:	7160      	strb	r0, [r4, #5]
+ 8007612:	4639      	mov	r1, r7
+ 8007614:	6820      	ldr	r0, [r4, #0]
  8007616:	7922      	ldrb	r2, [r4, #4]
  8007618:	88e3      	ldrh	r3, [r4, #6]
  800761a:	f7fd fe72 	bl	8005302 <spi_master_enable>
- 800761e:	4628      	mov	r0, r5
+ 800761e:	4638      	mov	r0, r7
  8007620:	e000      	b.n	8007624 <_ZN6SD_Dev4initE8spi_mode12spi_cfg_flag+0xfc>
  8007622:	2001      	movs	r0, #1
  8007624:	e8bd 81fc 	ldmia.w	sp!, {r2, r3, r4, r5, r6, r7, r8, pc}

@@ -8,5 +8,9 @@
  */
 
 #include <libFAT/FAT.h>
-
+#include <FATprivate.h>
 //TODO: FAT init. that first initializes SD, then the FAT pointer map
+
+int Partition::init(SD_Dev sd){
+  sd.readBlock();
+}

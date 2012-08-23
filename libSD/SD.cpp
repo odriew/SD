@@ -73,7 +73,7 @@ unsigned char SD_Dev::init(spi_mode _mode, spi_cfg_flag _flags){
 	while((sdResponse[0] & 0x01) && (++i < 1000));
 	if(i >= 1000) return 1;
 	
-	do {if(!command(CMD58, sdArgs, sdResponse, CMD58R)) return 1;}
+	do {if(command(CMD58, sdArgs, sdResponse, CMD58R)) return 1;}
 	while(!(sdResponse[1] & 0x80));
 	
 	baud= baudFull;
@@ -86,7 +86,6 @@ int SD_Dev::command(int cmd, unsigned char *arg, unsigned char *resp, int respTy
 	unsigned char i= 0;
 	unsigned char respLeng= 0;
 	unsigned char charQ;
-	unsigned char txbuf[1];
 //#############TODO: convert section to utilize libmaple for spi #DONE#	
 	spi_activate(chSel, cspin);
 	spi_send(spi, 0xFF);
@@ -139,11 +138,71 @@ int SD_Dev::command(int cmd, unsigned char *arg, unsigned char *resp, int respTy
 }
 
 int SD_Dev::readBlock(unsigned long int blockAdd, char *dest){
-	return 0;
+  long int i;
+  char aChar;
+
+  spi_activate(chSel, cspin);
+  while(spi_send(spi, 0xff) != 0xff);
+  blockAdd *= 512;
+  for(i= 3; i >= 0; i--) sdArgs[i]= (unsigned char)((blockAdd >> (8 * i)) & 0xff);
+  //single block read command
+  do if(command(CMD17, sdArgs, sdResponse, CMD17R)) { spi_deactivate(chSel, cspin); return 1;}
+  while(sdResponse[0]);
+
+  i= 0;
+  do{
+    aChar= spi_send(spi,0xff);
+    i++;
+  }
+  while((aChar == 0xff) && (i < 40000));
+
+  if(i >= 40000){
+    spi_deactivate(chSel, cspin);
+    return 1;
+  }
+
+  if((aChar & 0xe0) == 0){
+    spi_send(spi, 0xff);
+    spi_deactivate(chSel, cspin);
+    return 1;
+  }
+
+  if(aChar != 0xFE){
+    spi_deactivate(chSel, cspin);
+    return 1;
+  }
+  for(i= 0; i < 512; i++){
+    dest[i]= spi_send(spi, 0xff);
+  }
+  spi_send(spi, 0xff);
+  spi_send(spi, 0xff);
+  spi_deactivate(chSel, cspin);
+  return 0;
 }
 
 int SD_Dev::writeBlock(unsigned long int blockAdd, char* src){
-	return 0;
+  spi_activate(chSel, cspin);
+  while(spi_send(spi, 0xff) != 0xff);
+
+  int i;
+  char q;
+  blockAdd *= 512;
+  for(i= 3; i >= 0; i--) sdArgs[i]= (unsigned char)((blockAdd >> (8 * i)) & 0xff);
+  do if(command(CMD24, sdArgs, sdResponse, CMD24R)){ spi_deactivate(chSel, cspin); return 1;}
+  while(sdResponse[0]);
+
+  spi_send(spi, 0xff);
+  spi_send(spi, 0xfe);
+  for(i= 0; i < 512; i++) spi_send(spi, src[i]);
+  spi_send(spi, 0xff);
+  spi_send(spi, 0xff);
+
+  do q= spi_send(spi, 0xff);
+  while((q & 0x10) || !(q & 0x01));
+
+  if((q & 0x1F) != 0x05) {spi_deactivate(chSel, cspin); return 1;}
+  spi_deactivate(chSel, cspin);
+  return 0;
 }
 
 //requisite spi functions

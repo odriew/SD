@@ -2,7 +2,7 @@
 
 include $(MAKEDIR)/header.mk
 
-FAT_INCLUDES := -I$(d)/include
+FAT_INCLUDES := -I$(d)/include -I$(d)/../include
 CFLAGS_$(d) := $(WIRISH_INCLUDES) $(LIBMAPLE_INCLUDES) $(FAT_INCLUDES)
 cppSRCS_$(d) := FAT.cpp
 

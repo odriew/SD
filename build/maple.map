@@ -1351,28 +1351,28 @@ Discarded input sections
  .text          0x00000000        0x0 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
  .data          0x00000000        0x0 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
  .bss           0x00000000        0x0 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .text          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .data          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .bss           0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
  .text          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .data          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .bss           0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .text._ZN6SD_DevD2Ev
                 0x00000000        0x2 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .text._ZN6SD_Dev9readBlockEmPc
-                0x00000000        0x4 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .text._ZN6SD_Dev10writeBlockEmPc
-                0x00000000        0x4 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .text._ZN6SD_DevC1EP7spi_devP8gpio_dev
                 0x00000000       0x16 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .text._ZN6SD_DevC2EP7spi_devP8gpio_dev
                 0x00000000       0x16 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .text._ZN6SD_DevC2EP7spi_devP8gpio_devP7dma_dev
                 0x00000000       0x1a build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .rodata.baudSlow
-                0x00000000        0x1 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .text._ZN6SD_Dev10writeBlockEmPc
+                0x00000000       0xba build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .text._ZN6SD_Dev9readBlockEmPc
+                0x00000000       0xd4 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .rodata.baudFull
                 0x00000000        0x1 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .rodata.baudSlow
+                0x00000000        0x1 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .text          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+ .data          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+ .bss           0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
  .text          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/main.o
  .data          0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/main.o
  .bss           0x00000000        0x0 build//Users/Danny/Maple_Workbench/SD/main.o
@@ -2114,7 +2114,7 @@ END GROUP
  .text._ZN6SD_DevC1EP7spi_devP8gpio_devP7dma_dev
                 0x08007436       0x1a build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
                 0x08007436                _ZN6SD_DevC1EP7spi_devP8gpio_devP7dma_dev
- .text.T.16     0x08007450       0x16 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .text.T.28     0x08007450       0x16 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  *fill*         0x08007466        0x2 00
  .text._ZN6SD_Dev7commandEiPhS0_i
                 0x08007468       0xc0 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
@@ -2388,7 +2388,7 @@ END GROUP
                 0x08008ca8                _ZTV9USBSerial
  .rodata.ucExpectedStackBytes.3388
                 0x08008cc0       0x14 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
- .rodata.CSWTCH.14
+ .rodata.CSWTCH.26
                 0x08008cd4        0x8 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .rodata.str1.1
                 0x08008cdc        0x2 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-impure.o)
@@ -2608,8 +2608,8 @@ END GROUP
  .comment       0x000004b6       0x12 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/timers.o
  .comment       0x000004c8       0x12 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .comment       0x000004da       0x12 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .comment       0x000004ec       0x12 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .comment       0x000004fe       0x12 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .comment       0x000004ec       0x12 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .comment       0x000004fe       0x12 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
  .comment       0x00000510       0x12 build//Users/Danny/Maple_Workbench/SD/main.o
  .comment       0x00000522       0x12 build/main.o
  .comment       0x00000534       0x12 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
@@ -2979,7 +2979,7 @@ END GROUP
  .debug_pubnames
                 0x000034b6       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
 
-.debug_info     0x00000000    0x26bcf
+.debug_info     0x00000000    0x26c67
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0x8f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_info    0x0000008f      0x55f build//Users/Danny/libmaple/libmaple/adc.o
@@ -3051,28 +3051,28 @@ END GROUP
  .debug_info    0x00022627       0x53 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/timers.o
  .debug_info    0x0002267a     0x1017 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .debug_info    0x00023691       0xf6 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .debug_info    0x00023787       0x25 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .debug_info    0x000237ac     0x1013 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_info    0x000247bf      0xc91 build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_info    0x00025450       0x25 build/main.o
- .debug_info    0x00025475       0xd2 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_info    0x00025547       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x00025606       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x000256c5       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_info    0x00025784       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_info    0x00025843       0xba /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x000258fd       0xca /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_info    0x000259c7       0xf4 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_info    0x00025abb       0xe2 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_info    0x00025b9d       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_info    0x00025c5d       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_info    0x00025d1c      0x665 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_info    0x00026381      0x63f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_info    0x000269c0       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_info    0x00026a80       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
- .debug_info    0x00026b40       0x8f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_info    0x00023787     0x1053 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_info    0x000247da       0x76 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+ .debug_info    0x00024850      0xc98 build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_info    0x000254e8       0x25 build/main.o
+ .debug_info    0x0002550d       0xd2 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_info    0x000255df       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0002569e       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x0002575d       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x0002581c       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x000258db       0xba /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00025995       0xca /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_info    0x00025a5f       0xf4 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_info    0x00025b53       0xe2 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_info    0x00025c35       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x00025cf5       0xbf /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_info    0x00025db4      0x665 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_info    0x00026419      0x63f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_info    0x00026a58       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_info    0x00026b18       0xc0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
+ .debug_info    0x00026bd8       0x8f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_abbrev   0x00000000     0x85fe
+.debug_abbrev   0x00000000     0x85fb
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x12 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_abbrev  0x00000012      0x1a1 build//Users/Danny/libmaple/libmaple/adc.o
@@ -3144,28 +3144,28 @@ END GROUP
  .debug_abbrev  0x00007811       0x33 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/timers.o
  .debug_abbrev  0x00007844      0x253 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .debug_abbrev  0x00007a97       0x8e build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .debug_abbrev  0x00007b25       0x14 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .debug_abbrev  0x00007b39      0x317 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_abbrev  0x00007e50      0x227 build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_abbrev  0x00008077       0x14 build/main.o
- .debug_abbrev  0x0000808b       0x9c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_abbrev  0x00008127       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x0000813b       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x0000814f       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_abbrev  0x00008163       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_abbrev  0x00008177       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_abbrev  0x0000818b       0x66 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_abbrev  0x000081f1       0x7c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_abbrev  0x0000826d       0x6c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_abbrev  0x000082d9       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_abbrev  0x000082ed       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_abbrev  0x00008301      0x169 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_abbrev  0x0000846a      0x15a /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_abbrev  0x000085c4       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_abbrev  0x000085d8       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
- .debug_abbrev  0x000085ec       0x12 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_abbrev  0x00007b25      0x2f5 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_abbrev  0x00007e1a       0x33 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+ .debug_abbrev  0x00007e4d      0x227 build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_abbrev  0x00008074       0x14 build/main.o
+ .debug_abbrev  0x00008088       0x9c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_abbrev  0x00008124       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x00008138       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x0000814c       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x00008160       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x00008174       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x00008188       0x66 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_abbrev  0x000081ee       0x7c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_abbrev  0x0000826a       0x6c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_abbrev  0x000082d6       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x000082ea       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_abbrev  0x000082fe      0x169 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_abbrev  0x00008467      0x15a /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x000085c1       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x000085d5       0x14 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
+ .debug_abbrev  0x000085e9       0x12 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_line     0x00000000     0xdff5
+.debug_line     0x00000000     0xe43b
  *(.debug_line)
  .debug_line    0x00000000       0x6f /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_line    0x0000006f      0x194 build//Users/Danny/libmaple/libmaple/adc.o
@@ -3237,28 +3237,28 @@ END GROUP
  .debug_line    0x0000be82      0x135 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/timers.o
  .debug_line    0x0000bfb7      0x78a build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .debug_line    0x0000c741      0x5d9 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .debug_line    0x0000cd1a       0x8e build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
- .debug_line    0x0000cda8      0x2e4 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_line    0x0000d08c      0x216 build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_line    0x0000d2a2       0x3f build/main.o
- .debug_line    0x0000d2e1       0xe5 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_line    0x0000d3c6      0x20e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x0000d5d4      0x22e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x0000d802      0x114 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x0000d916       0x8c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_line    0x0000d9a2       0x77 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x0000da19       0x7b /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_line    0x0000da94       0x82 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_line    0x0000db16       0x79 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_line    0x0000db8f       0x75 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_line    0x0000dc04       0x88 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_line    0x0000dc8c       0xe1 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_line    0x0000dd6d       0xd5 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_line    0x0000de42       0x98 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_line    0x0000deda       0xa9 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
- .debug_line    0x0000df83       0x72 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_line    0x0000cd1a      0x30e build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_line    0x0000d028      0x29c build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+ .debug_line    0x0000d2c4      0x424 build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_line    0x0000d6e8       0x3f build/main.o
+ .debug_line    0x0000d727       0xe5 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_line    0x0000d80c      0x20e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0000da1a      0x22e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000dc48      0x114 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x0000dd5c       0x8c /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x0000dde8       0x77 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0000de5f       0x7b /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_line    0x0000deda       0x82 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_line    0x0000df5c       0x79 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_line    0x0000dfd5       0x75 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0000e04a       0x88 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_line    0x0000e0d2       0xe1 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_line    0x0000e1b3       0xd5 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_line    0x0000e288       0x98 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_line    0x0000e320       0xa9 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
+ .debug_line    0x0000e3c9       0x72 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_frame    0x00000000     0x41c8
+.debug_frame    0x00000000     0x4200
  *(.debug_frame)
  .debug_frame   0x00000000       0x68 build//Users/Danny/libmaple/libmaple/adc.o
  .debug_frame   0x00000068       0x6c build//Users/Danny/libmaple/libmaple/dac.o
@@ -3327,16 +3327,16 @@ END GROUP
  .debug_frame   0x00003884      0x210 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/queue.o
  .debug_frame   0x00003a94      0x3d4 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .debug_frame   0x00003e68       0x20 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .debug_frame   0x00003e88      0x148 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_frame   0x00003fd0       0x48 build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_frame   0x00004018       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_frame   0x00004038       0x38 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_frame   0x00004070       0x30 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_frame   0x000040a0       0x60 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_frame   0x00004100       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_frame   0x00004144       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_frame   0x00004188       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_frame   0x000041a8       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
+ .debug_frame   0x00003e88      0x180 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_frame   0x00004008       0x48 build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_frame   0x00004050       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_frame   0x00004070       0x38 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_frame   0x000040a8       0x30 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_frame   0x000040d8       0x60 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_frame   0x00004138       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_frame   0x0000417c       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_frame   0x000041c0       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_frame   0x000041e0       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divsi3.o)
 
 .debug_str      0x00000000     0x90b6
  *(.debug_str)
@@ -3478,12 +3478,12 @@ END GROUP
                                 0x9a9 (size before relaxing)
  .debug_str     0x00008b98       0x59 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
                                 0x144 (size before relaxing)
- .debug_str     0x00008bf1       0x2f build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
-                                 0x3d (size before relaxing)
- .debug_str     0x00008c20      0x192 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
-                                0xd4d (size before relaxing)
+ .debug_str     0x00008bf1      0x192 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+                                0xd56 (size before relaxing)
+ .debug_str     0x00008d83       0x2f build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+                                 0xc6 (size before relaxing)
  .debug_str     0x00008db2       0x45 build//Users/Danny/Maple_Workbench/SD/main.o
-                                0xc58 (size before relaxing)
+                                0xc61 (size before relaxing)
  .debug_str     0x00008df7       0x1f build/main.o
                                  0x2d (size before relaxing)
  .debug_str     0x00008e16       0xde /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
@@ -3499,7 +3499,7 @@ END GROUP
  .debug_str     0x000090ac        0xa /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
                                 0x1cf (size before relaxing)
 
-.debug_loc      0x00000000     0xb487
+.debug_loc      0x00000000     0xb5d4
  *(.debug_loc)
  .debug_loc     0x00000000       0x82 build//Users/Danny/libmaple/libmaple/adc.o
  .debug_loc     0x00000082       0xea build//Users/Danny/libmaple/libmaple/dac.o
@@ -3564,16 +3564,16 @@ END GROUP
  .debug_loc     0x00008c3e       0x99 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/port.o
  .debug_loc     0x00008cd7      0x732 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/queue.o
  .debug_loc     0x00009409      0xa32 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
- .debug_loc     0x00009e3b      0x421 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_loc     0x0000a25c       0x3e build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_loc     0x0000a29a       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_loc     0x0000a2de       0x67 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_loc     0x0000a345       0x57 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_loc     0x0000a39c      0x11e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_loc     0x0000a4ba      0x7bb /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_loc     0x0000ac75      0x812 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_loc     0x00009e3b      0x56e build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_loc     0x0000a3a9       0x3e build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_loc     0x0000a3e7       0x44 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_loc     0x0000a42b       0x67 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_loc     0x0000a492       0x57 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_loc     0x0000a4e9      0x11e /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_loc     0x0000a607      0x7bb /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_loc     0x0000adc2      0x812 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
 
-.debug_macinfo  0x00000000   0x1ebd2f
+.debug_macinfo  0x00000000   0x1efa2e
  *(.debug_macinfo)
  .debug_macinfo
                 0x00000000     0x4f41 build//Users/Danny/libmaple/libmaple/adc.o
@@ -3714,13 +3714,13 @@ END GROUP
  .debug_macinfo
                 0x001c72c4    0x12c64 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
  .debug_macinfo
-                0x001d9f28      0xd92 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+                0x001d9f28     0x8163 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .debug_macinfo
-                0x001dacba     0x8163 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+                0x001e208b     0x2c16 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
  .debug_macinfo
-                0x001e2e1d     0x8184 build//Users/Danny/Maple_Workbench/SD/main.o
+                0x001e4ca1     0x9fff build//Users/Danny/Maple_Workbench/SD/main.o
  .debug_macinfo
-                0x001eafa1      0xd8e build/main.o
+                0x001eeca0      0xd8e build/main.o
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -3891,9 +3891,9 @@ END GROUP
  .ARM.attributes
                 0x00000db2       0x31 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
  .ARM.attributes
-                0x00000de3       0x31 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
+                0x00000de3       0x31 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
  .ARM.attributes
-                0x00000e14       0x31 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+                0x00000e14       0x31 build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
  .ARM.attributes
                 0x00000e45       0x31 build//Users/Danny/Maple_Workbench/SD/main.o
  .ARM.attributes
@@ -4068,8 +4068,8 @@ LOAD build//Users/Danny/libmaple/libraries/FreeRTOS/utility/queue.o
 LOAD build//Users/Danny/libmaple/libraries/FreeRTOS/utility/timers.o
 LOAD build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
 LOAD build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
-LOAD build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
 LOAD build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+LOAD build//Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
 LOAD build//Users/Danny/Maple_Workbench/SD/main.o
 LOAD build/main.o
 LOAD /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a
@@ -4082,7 +4082,7 @@ LOAD /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.
 LOAD /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 OUTPUT(build/maple.elf elf32-littlearm)
 
-.debug_ranges   0x00000000     0x2650
+.debug_ranges   0x00000000     0x2680
  .debug_ranges  0x00000000       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_ranges  0x00000020       0x30 build//Users/Danny/libmaple/libmaple/adc.o
  .debug_ranges  0x00000050       0x30 build//Users/Danny/libmaple/libmaple/dac.o
@@ -4151,9 +4151,9 @@ OUTPUT(build/maple.elf elf32-littlearm)
  .debug_ranges  0x000020c8       0x98 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/queue.o
  .debug_ranges  0x00002160      0x1e0 build//Users/Danny/libmaple/libraries/FreeRTOS/utility/tasks.o
  .debug_ranges  0x00002340       0x18 build//Users/Danny/libmaple/libraries/FreeRTOS/MapleFreeRTOS.o
- .debug_ranges  0x00002358       0xc8 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
- .debug_ranges  0x00002420       0x60 build//Users/Danny/Maple_Workbench/SD/main.o
- .debug_ranges  0x00002480       0x18 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
- .debug_ranges  0x00002498       0xd0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_ranges  0x00002568       0xc8 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_ranges  0x00002630       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_ranges  0x00002358       0xf8 build//Users/Danny/Maple_Workbench/SD/libSD/SD.o
+ .debug_ranges  0x00002450       0x60 build//Users/Danny/Maple_Workbench/SD/main.o
+ .debug_ranges  0x000024b0       0x18 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libstdc++.a(atexit_arm.o)
+ .debug_ranges  0x000024c8       0xd0 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_ranges  0x00002598       0xc8 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00002660       0x20 /Users/Danny/libmaple/arm/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o

@@ -74,10 +74,10 @@
      68	      0	      0	     68	     44	build/Users/Danny/libmaple/wirish/wirish_shift.o
      38	      0	      0	     38	     26	build/Users/Danny/libmaple/wirish/wirish_time.o
       0	      0	      0	      0	      0	build/Users/Danny/Maple_Workbench/SD/libFAT/FAT.o
-    630	      0	      0	    630	    276	build/Users/Danny/Maple_Workbench/SD/libSD/SD.o
+   1020	      0	      0	   1020	    3fc	build/Users/Danny/Maple_Workbench/SD/libSD/SD.o
     107	      4	     44	    155	     9b	build/Users/Danny/Maple_Workbench/SD/main.o
      93	      4	     20	    117	     75	build/Users/Danny/Maple_Workbench/SD/real-main.o
       0	      0	      0	      0	      0	build/Users/Danny/Maple_Workbench/wasSD/libFAT/FAT.o
     630	      0	      0	    630	    276	build/Users/Danny/Maple_Workbench/wasSD/libSD/SD.o
     107	      4	     44	    155	     9b	build/Users/Danny/Maple_Workbench/wasSD/main.o
-  31871	   1767	   9093	  42731	   a6eb	(TOTALS)
+  32261	   1767	   9093	  43121	   a871	(TOTALS)
