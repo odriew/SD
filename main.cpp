@@ -7,18 +7,56 @@
  *
  */
 
-#include <libSD/SD.h>
 #include <libFAT/FAT.h>
+#include <libmaple/usart.h>
+
+//fuck it
+//#include <wirish/wirish.h>
 
 spi_dev *spi= SPI1;
 gpio_dev *chSel= GPIOA;
-dma_dev *dma= DMA1;
-SD_Dev sd (spi, chSel, dma);
 
 extern const spi_mode mode= SPI_MODE_0;
 extern const spi_cfg_flag flags= SPI_FRAME_MSB;
 
+SD_Dev sd;
+
+Partition partition; //NOTE: partition initializes sd via address
+FileBox test(&partition);
+
+void setup(){
+  while(sd.init(spi, chSel, mode, flags));
+   while(!SerialUSB.available())
+    continue;
+  SerialUSB.read();
+  SerialUSB.println("Initializing...");
+  partition.init(&sd);
+  SerialUSB.println("-------------------------------DONE");
+  
+}
+
+void loop(){
+  // SerialUSB.println(partition.fatAdd);
+  //SerialUSB.println("~~~~~~~~~~");
+  //SerialUSB.println();
+  
+   sd.readBlock(partition.rootAdd, sd.blockBuf);
+  for(int q=0; q <=9; q++){
+    for(int i=q*30; i < (q*30 + 30); i++){
+      SerialUSB.print(i); SerialUSB.print(": 0x");SerialUSB.println(sd.blockBuf[i], HEX);
+    }
+    while(!SerialUSB.available());
+    SerialUSB.read();
+  }
+}
+
+
+__attribute__((constructor)) void premain(){
+  init();
+}
+
 int main(void){	
-	//initialize slow spi for SD initialization
-	sd.init(mode, flags);
+  setup();
+  while(1)
+    loop();
 }

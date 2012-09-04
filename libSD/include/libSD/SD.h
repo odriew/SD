@@ -11,6 +11,8 @@
 #include <libmaple/dma.h>
 #include <libmaple/gpio.h>
 
+#include <wirish/wirish.h>
+
 #define R1		1
 #define R1Busy	2
 #define R2		3
@@ -39,11 +41,11 @@
 #define CMD58	58
 #define CMD58R	R3
 
-#define cspin 4
+#define cspin 10
 
 //NOTE: spi_activate() and spi_deactivate() to be used only after GPIOA is initialized
-#define spi_activate(chSel, cspin)		gpio_write_bit(chSel, cspin, 1)
-#define spi_deactivate(chSel, cspin)	gpio_write_bit(chSel, cspin, 0);
+#define spi_activate(chSel, cspin)		gpio_write_bit(chSel, cspin, 0)
+#define spi_deactivate(chSel, cspin)	gpio_write_bit(chSel, cspin, 1);
 
 class SD_Dev {
 //Standard variables
@@ -68,10 +70,12 @@ public:
 	unsigned char sdArgs[4];
 	unsigned char sdResponse[5];
 
-	SD_Dev(spi_dev *_spi, gpio_dev *_chSel);
-	SD_Dev(spi_dev *_spi, gpio_dev *_chSel, dma_dev *_dma);
+	//Buffer array
+	char blockBuf[512];
+
+	SD_Dev();
 	~SD_Dev();
-	unsigned char init(spi_mode _mode, spi_cfg_flag _flags);
+	unsigned char init(spi_dev *_spi, gpio_dev *_chSel, spi_mode _mode, spi_cfg_flag _flags);
 	int command(int cmd, unsigned char *arg, unsigned char *resp, int respType);
 	int readBlock(unsigned long int blockAdd, char *dest);
 	int writeBlock(unsigned long int blockAdd, char* src);

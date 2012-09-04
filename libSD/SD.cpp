@@ -13,82 +13,104 @@
 extern const spi_baud_rate baudSlow= SPI_BAUD_PCLK_DIV_256;
 extern const spi_baud_rate baudFull= SPI_BAUD_PCLK_DIV_2;
 
-SD_Dev::SD_Dev(spi_dev *_spi, gpio_dev *_chSel){
-	spi=_spi; chSel= _chSel;	//required devices
-	dma= 0;
-	spi_init(spi);
-}
-
-SD_Dev::SD_Dev(spi_dev *_spi, gpio_dev *_chSel, dma_dev *_dma){
-	spi=_spi; chSel= _chSel; dma= _dma;	//required devices w/ DMA
-	spi_init(spi);
-	dma_init(dma);
-}
+SD_Dev::SD_Dev(){}
 
 SD_Dev::~SD_Dev(){
 	
 }
 
-unsigned char SD_Dev::init(spi_mode _mode, spi_cfg_flag _flags){	
-	mode= _mode;
-	baud= baudSlow;
-	flags= _flags;
+unsigned char SD_Dev::init(spi_dev *_spi, gpio_dev *_chSel, spi_mode _mode, spi_cfg_flag _flags){	
+  this->spi=_spi; this->chSel= _chSel; this->mode= _mode; this->flags= _flags;	//required devices
+  dma= 0;
+  spi_init(spi);
+
+
+  baud= baudSlow;
 	
-	gpio_init(chSel);	//CS initialization
-	gpio_set_mode(chSel, cspin, GPIO_OUTPUT_PP);
+	SerialUSB.println("2.1");
+	
+       	gpio_init(chSel);	//CS initialization
+	spi_gpio_cfg(1, chSel, cspin, chSel, 5, 6, 7);
 	
 	spi_master_enable(spi, baud, mode, flags);
+	if(spi_is_enabled(spi)) SerialUSB.println("yep");
+	else SerialUSB.println("dammit");
 //	TODO: SD init. sequence #DONE#
 	int i;
-	
 	cptr= 0;
-		
+	SerialUSB.println("2.2");
 	//--sync process
+	spi_activate(chSel, cspin);
 	for(i= 0; i < 100; i++){
 		spi_send(spi, 0xFF);
 	}
-	
+	SerialUSB.println("2.3");	
+	spi_deactivate(chSel, cspin);
+	for(i=0; i < 5; i++) spi_send(spi, 0xFF);
 	for(i= 0; i < 4; i++) sdArgs[i]= 0x00;
 	
-	do command(CMD0, sdArgs, sdResponse, CMD0R);
-	while(sdResponse[0] & 0xFE);
+	do if(command(CMD0, sdArgs, sdResponse, CMD0R)){SerialUSB.println("Aww"); while(1);}
+	while((sdResponse[0] & 0xFE));
 	
+	SerialUSB.println(sdResponse[0], DEC);	
+	SerialUSB.println("2.4");
+
 	sdArgs[0]= 0b10101010;	//check pattern
 	sdArgs[1]= 0x01 & 0x0F;	//acceptable voltage range
 	sdArgs[2]= 0x00;
 	sdArgs[3]= 0x00;
-	do command(CMD8, sdArgs, sdResponse, CMD8R);
+	do{
+	  command(CMD8, sdArgs, sdResponse, CMD8R);
+	  SerialUSB.println(sdResponse[0]);
+	}
 	while(sdResponse[0] & 0xFE);
 	
+	SerialUSB.println("2.5");
+
 	sdArgs[0]= 0x00;
 	sdArgs[1]= 0x00;
 	sdArgs[2]= 0x00;
 	sdArgs[3]= 0x40;
 	i= 0;
 	do{
-		if(!command(CMD55, sdArgs, sdResponse, CMD55R))
-			command(ACMD41, sdArgs, sdResponse, ACMD41R);
-		else return 1;
+	  if(!command(CMD55, sdArgs, sdResponse, CMD55R)){
+	    SerialUSB.print("a");SerialUSB.println(sdResponse[0]);
+	    command(ACMD41, sdArgs, sdResponse, ACMD41R);
+	    SerialUSB.print("b");SerialUSB.println(sdResponse[0]);
+	  }
+	  else return 1;
 	}
 	while((sdResponse[0] & 0x01) && (++i < 1000));
 	if(i >= 1000) return 1;
 	
-	do {if(command(CMD58, sdArgs, sdResponse, CMD58R)) return 1;}
-	while(!(sdResponse[1] & 0x80));
+	SerialUSB.println("2.6");
+
+	do {
+	  if(command(CMD58, sdArgs, sdResponse, CMD58R)) {
+	    SerialUSB.println("DAMN");
+	    return 1;
+	  }
+	  //	  SerialUSB.println("-");
+      	  //SerialUSB.println(sdResponse[2], DEC);
+	}
+	while((sdResponse[2] & 0xC0) != 0xC0);
 	
+	SerialUSB.println("2.7");
+		
 	baud= baudFull;
 	spi_master_enable(spi, baud, mode, flags);
-	return 0;
 	
+	SerialUSB.println("2.8");
+
+	return 0;
 }
 
 int SD_Dev::command(int cmd, unsigned char *arg, unsigned char *resp, int respType){
 	unsigned char i= 0;
 	unsigned char respLeng= 0;
 	unsigned char charQ;
-//#############TODO: convert section to utilize libmaple for spi #DONE#	
 	spi_activate(chSel, cspin);
-	spi_send(spi, 0xFF);
+	for(i=0; i<10; i++)spi_send(spi, 0xFF);
 	spi_send(spi, (cmd & 0x3F) | 0x40);
 	for(i= 0; i < 4; i++) {
 		spi_send(spi, arg[3 - i]);
@@ -132,6 +154,7 @@ int SD_Dev::command(int cmd, unsigned char *arg, unsigned char *resp, int respTy
 		while(charQ != 0xFF);
 		spi_send(spi, 0xFF);
 	}
+	delay(100);
 	spi_deactivate(chSel, cspin);
 	return 0;
 //##################################################################
@@ -140,35 +163,55 @@ int SD_Dev::command(int cmd, unsigned char *arg, unsigned char *resp, int respTy
 int SD_Dev::readBlock(unsigned long int blockAdd, char *dest){
   long int i;
   char aChar;
-
   spi_activate(chSel, cspin);
-  while(spi_send(spi, 0xff) != 0xff);
+  for(i= 0; i < 100; i++) spi_send(spi, 0xff);
+
+  //  while(spi_send(spi, 0xff) != 0xFF);
+  do{
+    aChar= spi_send(spi, 0xff);
+    SerialUSB.println("^^^^^^^^");
+    SerialUSB.println(aChar, DEC);
+    //  delay(100);
+  }
+  while(aChar != 0xff);
   blockAdd *= 512;
   for(i= 3; i >= 0; i--) sdArgs[i]= (unsigned char)((blockAdd >> (8 * i)) & 0xff);
-  //single block read command
-  do if(command(CMD17, sdArgs, sdResponse, CMD17R)) { spi_deactivate(chSel, cspin); return 1;}
-  while(sdResponse[0]);
-
+    //single block read command
+  if(command(CMD17, sdArgs, sdResponse, CMD17R)) { spi_deactivate(chSel, cspin);SerialUSB.println("dammit"); return 1;}
+  SerialUSB.println("???????????");
+  SerialUSB.println(sdResponse[0], BIN);  
+  if(sdResponse[0]){SerialUSB.println("aaaaaaaaaaaaaaaaaaaaaaaaa"); return 1;}
+  delay(100);
   i= 0;
+  spi_activate(chSel, cspin);
   do{
     aChar= spi_send(spi,0xff);
     i++;
+    SerialUSB.println("*********");
+    SerialUSB.println(aChar, DEC);
   }
   while((aChar == 0xff) && (i < 40000));
+  SerialUSB.println("$$$$$$$$$$$");
+  //  SerialUSB.println(aChar, DEC);
 
   if(i >= 40000){
     spi_deactivate(chSel, cspin);
+    SerialUSB.println("balls");
     return 1;
   }
-
+  
   if((aChar & 0xe0) == 0){
     spi_send(spi, 0xff);
     spi_deactivate(chSel, cspin);
+    SerialUSB.println("!!!!!!!!!!!!");
+    SerialUSB.println(aChar, DEC);
     return 1;
   }
 
   if(aChar != 0xFE){
     spi_deactivate(chSel, cspin);
+    SerialUSB.println("nooooooooooooooooooooo");
+    SerialUSB.println(aChar, DEC);
     return 1;
   }
   for(i= 0; i < 512; i++){
@@ -210,6 +253,6 @@ unsigned char spi_send(spi_dev *spi, unsigned char data){
 	unsigned char txBuf[1];
 	txBuf[0]= data;
 	spi_tx(spi, txBuf, 1);
-	while(spi_is_rx_nonempty(spi));
+       	while(!spi_is_rx_nonempty(spi));
 	return spi_rx_reg(spi);
 }
